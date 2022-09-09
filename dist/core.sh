@@ -53,6 +53,7 @@ function install_via_nix {
     # Path is set correctly by set_paths but that is only available outside of this Action.
     PATH=/nix/var/nix/profiles/default/bin/:$PATH
     nix develop --profile initial
+    nix develop initial
   else 
     echo "File at nix_file does not exist"
     exit 1
