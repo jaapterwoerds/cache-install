@@ -14,6 +14,9 @@ inputs:
   nix_file:
     description: 'Nix file, defaults to `default.nix`.'
     default: 'default.nix'
+    
+  cachix_signing_key:
+    required: false
   extra_nix_config:
     required: false
     description: 'Nix config appended to nix.conf'
