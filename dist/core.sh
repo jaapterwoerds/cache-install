@@ -19,6 +19,14 @@ function install_nix {
   # Allow binary caches for runner user.
   add_config "trusted-users = root $USER"
 
+  # Append extra nix configuration if provided
+  if [[ $INPUT_EXTRA_NIX_CONFIG != "" ]]; then
+    add_config "$INPUT_EXTRA_NIX_CONFIG"
+  fi
+  if [[ ! $INPUT_EXTRA_NIX_CONFIG =~ "experimental-features" ]]; then
+    add_config "experimental-features = nix-command flakes"
+  fi
+
   installer_options=(
     --daemon
     --daemon-user-count 4
