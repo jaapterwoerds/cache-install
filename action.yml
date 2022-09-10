@@ -14,6 +14,9 @@ inputs:
   nix_file:
     description: 'Nix file, defaults to `default.nix`.'
     default: 'default.nix'
+  extra_nix_config:
+    required: false
+    description: 'Nix config appended to nix.conf'
 outputs:
   cache-hit:
     description: 'A boolean value to indicate an exact match was found for the primary key'
